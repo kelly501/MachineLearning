@@ -21,13 +21,13 @@ ValInx=c(1:AvaN)[-TrainInx]
 TrainData=TrainData[-c(10,11,12)]
 ValData=AvaData[ValInx,]
 
-#¥Ñtraining set«Øºcrandom forest model  #¦¹³Brandomforest¤èªk¡A³]©w¨C¦¸¨ú3ÅÜ¼Æ
+#ç”±training setå»ºæ§‹random forest model  #æ­¤è™•randomforestæ–¹æ³•ï¼Œè¨­å®šæ¯æ¬¡å–3è®Šæ•¸
 ModelRF=randomForest(diabetes~., data=AvaData, subset=TrainInx, mtry=3, importance=T)
 
-#¥Ñvalidation setªºX±a¤Jbagging model¹w´úY¡A¨Ã­pºâ·Ç½T²v
+#ç”±validation setçš„Xå¸¶å…¥bagging modelé æ¸¬Yï¼Œä¸¦è¨ˆç®—æº–ç¢ºç‡
 PredY=predict(ModelRF,newdata=ValData[,-9],type="response")
 
-#Æ[¹î¦U­ÓXªº­«­n©Ê
+#è§€å¯Ÿå„å€‹Xçš„é‡è¦æ€§
 confusionMatrix(PredY, ValData$diabetes)
 importance(ModelRF)
 varImpPlot(ModelRF)
