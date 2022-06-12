@@ -10,4 +10,4 @@
 6. Bagging (Boostrapped Aggregation)  
 7. Random Forest  
 8. Support Vector Machine  
-9. perception Neural Network  
+9. Neural Network  
